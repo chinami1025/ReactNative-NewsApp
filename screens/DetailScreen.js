@@ -5,8 +5,6 @@ import Constants from "expo-constants";
 
 export default DetailScreen = ({ route }) => {
   const { article } = route.params;
-
-  console.log(article);
   return <WebView source={{ uri: article.url }} />;
 };
 

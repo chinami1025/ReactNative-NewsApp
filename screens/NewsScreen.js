@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FlatList, StyleSheet, View, SafeAreaView } from "react-native";
+import { FlatList, StyleSheet, SafeAreaView } from "react-native";
 import NewsKizi from "../components/NewsKizi";
 import Constants from "expo-constants";
 import axios from "axios";

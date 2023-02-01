@@ -1,5 +1,4 @@
-import { StyleSheet, Text, View, Image, Touchable } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
 const NewsKizi = ({ imageuri, title, subtext, onPress }) => {
   var date = new Date(subtext);
@@ -17,12 +16,7 @@ const NewsKizi = ({ imageuri, title, subtext, onPress }) => {
         <Text style={styles.subText}>{koukaihiduke}</Text>
       </View>
       <View style={styles.gazoBox}>
-        <Image
-          style={{ width: 100, height: 100 }}
-          source={{
-            uri: imageuri,
-          }}
-        />
+        <Image style={{ width: 100, height: 100 }} source={{ url: imageuri }} />
       </View>
     </TouchableOpacity>
   );
@@ -49,7 +43,7 @@ const styles = StyleSheet.create({
     width: 100,
   },
 
-  Text: {
+  text: {
     fontSize: 16,
   },
 
