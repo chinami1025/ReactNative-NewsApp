@@ -1,11 +1,20 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Touchable } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-const NewsKizi = ({ imageuri, title, subtext }) => {
+const NewsKizi = ({ imageuri, title, subtext, onPress }) => {
+  var date = new Date(subtext);
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var koukaihiduke = year + "年" + month + "月" + day + "日";
+
   return (
-    <View style={styles.box}>
+    <TouchableOpacity style={styles.box} onPress={onPress}>
       <View style={styles.moziBox}>
-        <Text style={styles.text}>{title}</Text>
-        <Text style={styles.subText}>{subtext}</Text>
+        <Text numberOfLines={3} style={styles.text}>
+          {title}
+        </Text>
+        <Text style={styles.subText}>{koukaihiduke}</Text>
       </View>
       <View style={styles.gazoBox}>
         <Image
@@ -15,7 +24,7 @@ const NewsKizi = ({ imageuri, title, subtext }) => {
           }}
         />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -32,14 +41,12 @@ const styles = StyleSheet.create({
 
   moziBox: {
     flex: 1,
-    backgroundColor: "steelblue",
     padding: 16,
     justifyContent: "space-between",
   },
 
   gazoBox: {
     width: 100,
-    backgroundColor: "powderblue",
   },
 
   Text: {
@@ -48,6 +55,6 @@ const styles = StyleSheet.create({
 
   subText: {
     fontSize: 12,
-    color: "red",
+    color: "darkblue",
   },
 });
